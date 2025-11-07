@@ -1,0 +1,157 @@
+package com.example.grouvy.schedule.service;
+
+
+import com.example.grouvy.schedule.form.CategoryUpdateForm;
+import com.example.grouvy.schedule.form.ConferenceRoomRegisterForm;
+import com.example.grouvy.schedule.form.HolidayRegisterForm;
+import com.example.grouvy.schedule.form.MeetingReservateForm;
+import com.example.grouvy.schedule.form.ScheduleRegisterForm;
+import com.example.grouvy.schedule.mapper.ScheduleMapper;
+import com.example.grouvy.schedule.vo.ConferenceRoom;
+import com.example.grouvy.schedule.vo.ConferenceRoomReservation;
+import com.example.grouvy.schedule.vo.DeleteHistory;
+import com.example.grouvy.schedule.vo.Holiday;
+import com.example.grouvy.schedule.vo.Schedule;
+import com.example.grouvy.schedule.vo.ScheduleCategory;
+import com.example.grouvy.schedule.vo.SimpleReservation;
+import com.example.grouvy.schedule.vo.SimpleSchedule;
+import com.google.gson.Gson;
+import java.util.List;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ScheduleService {
+
+    @Autowired(required = false)
+    private ScheduleMapper scheduleMapper;
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    public Schedule getScheduleByUserID(int scheduleID){
+        Schedule schedule = scheduleMapper.getScheduleByUserNo(scheduleID);
+        return schedule;
+    }
+
+    //public String getSimpleSchedule(int userId, Long  departmentId){
+        public List<SimpleSchedule> getSimpleSchedule(int userId, Long  departmentId){
+        /*List<SimpleSchedule> simpleschedule = scheduleMapper.getSimpleSchedule(userId, departmentId);
+
+        Gson gson = new Gson();
+        String scheduleJson = gson.toJson(simpleschedule);
+
+
+
+        System.out.println(scheduleJson);
+        return scheduleJson;*/
+
+        List<SimpleSchedule> simpleschedule = scheduleMapper.getSimpleSchedule(userId, departmentId);
+        return simpleschedule;
+
+    }
+
+    public String getConferenceRoomReservation(){
+        List<SimpleReservation> simpleReservations = scheduleMapper.getConferenceRoomReservation();
+
+        Gson gson2 = new Gson();
+        String reservationJson = gson2.toJson(simpleReservations);
+
+        System.out.println(reservationJson);
+        return reservationJson;
+    }
+
+
+
+//    public Holiday getHoliday(int holidayId){
+//        Holiday holiday = scheduleMapper.getHoliday();
+//
+//        Gson gson = new Gson();
+//        return holiday;
+//    }
+
+    public List<ScheduleCategory> getScheduleCategory(){
+        List<ScheduleCategory> scheduleCategory = scheduleMapper.getScheduleCategory();
+        return scheduleCategory;
+    };
+
+    public List<Holiday> getHolidayList(){
+        List<Holiday> holiday = scheduleMapper.getHoliday();
+        return  holiday;
+    }
+
+    public List<ConferenceRoom> getConferenceRoomList(){
+        List<ConferenceRoom> conferenceRoom = scheduleMapper.getConferenceRoom();
+        return conferenceRoom;
+    }
+
+    public void insertSchedule(ScheduleRegisterForm form) {
+
+        Schedule schedule = modelMapper.map(form, Schedule.class);
+
+        scheduleMapper.insertSchedule(schedule);
+    }
+
+    public void insertHoliday(HolidayRegisterForm form) {
+
+        Holiday holiday = modelMapper.map(form, Holiday.class);
+
+        scheduleMapper.insertHoliday(holiday);
+    }
+
+    public void updateCategory(CategoryUpdateForm form) {
+
+        ScheduleCategory category = modelMapper.map(form, ScheduleCategory.class);
+
+        scheduleMapper.updateCategory(category);
+
+    }
+
+    public void deleteHoliday(int holidayId){
+
+        scheduleMapper.deleteHolidayById(holidayId);
+    }
+
+    public void deleteMeetingroom(int conferenceRoomId){
+
+        scheduleMapper.deleteMeetingroomById(conferenceRoomId);
+    }
+
+    public void insertConferenceRoom(ConferenceRoomRegisterForm form) {
+
+        ConferenceRoom conferenceRoom = modelMapper.map(form, ConferenceRoom.class);
+
+        scheduleMapper.insertConferenceRoom(conferenceRoom);
+    }
+
+    public void deleteScheduleAllResigned(){
+
+        scheduleMapper.deleteScheduleAllResigned();
+    }
+
+    public void deleteScheduleById(int scheduleId){
+
+        scheduleMapper.deleteScheduleById(scheduleId);
+    }
+
+    public List<DeleteHistory> getDeleteHistoryList(){
+        List<DeleteHistory> deleteHistory = scheduleMapper.getHistory();
+        return deleteHistory;
+    }
+
+    public void insertDeleteHistory(){
+
+        DeleteHistory deleteHistory = new DeleteHistory();
+        scheduleMapper.insertHistory(deleteHistory);
+    }
+
+    public void insertReservation(MeetingReservateForm form){
+
+        ConferenceRoomReservation conferenceRoomReservation = modelMapper.map(form, ConferenceRoomReservation.class);
+
+        scheduleMapper.insertReservation(conferenceRoomReservation);
+    }
+
+
+}
