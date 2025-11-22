@@ -464,15 +464,15 @@ footer {
     <main>
         <div class="container">
             <div class="sidebar">
-                <h3>업무문서함</h3>
+                <h3>파일관리함</h3>
                 <div class="sidebar-section">
-                    <div class="sidebar-section-title">개인업무 문서함</div>
+                    <div class="sidebar-section-title">개인 파일함</div>
                     <ul class="sidebar-list">
                         <li><a href="/file/personal" class="sidebar-link">파일 목록</a></li>
                     </ul>
                 </div>
                 <div class="sidebar-section">
-                    <div class="sidebar-section-title">부서업무 문서함</div>
+                    <div class="sidebar-section-title">팀 파일함</div>
                     <ul class="sidebar-list">
                         <li><a href="/file/department" class="sidebar-link">파일 목록</a></li>
                     </ul>
@@ -480,7 +480,7 @@ footer {
                 <div class="sidebar-section">
                     <div class="sidebar-section-title">공유받은 파일함</div>
                     <ul class="sidebar-list">
-                        <li><a href="/file/share" class="sidebar-link">공유받은 파일 목록</a></li>
+                        <li><a href="/file/share" class="sidebar-link">파일 목록</a></li>
                     </ul>
                 </div>
                 <div class="sidebar-section">

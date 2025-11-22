@@ -579,7 +579,7 @@ footer {
     <main>
         <div class="container">
             <div class="sidebar">
-                <h3>업무문서함</h3>
+                <h3>파일관리함</h3>
                 <div class="sidebar-section">
                     <div class="sidebar-section-title">개인업무 문서함</div>
                     <ul class="sidebar-list">

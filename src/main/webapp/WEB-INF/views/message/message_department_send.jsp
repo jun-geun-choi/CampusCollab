@@ -38,7 +38,7 @@
 
     <!-- 본문 영역 -->
     <div class="main-content">
-        <h2><i class="fas fa-users mr-2"></i> 부서 쪽지 작성</h2>
+        <h2><i class="fas fa-users mr-2"></i> 단체 쪽지 작성</h2>
 
         <!-- 발신자 정보 -->
         <div class="sender-info mb-4">

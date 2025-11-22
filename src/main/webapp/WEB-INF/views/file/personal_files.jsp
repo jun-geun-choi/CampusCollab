@@ -9,7 +9,7 @@ pageEncoding="UTF-8"%>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>업무문서함</title>
+<title>파일관리함</title>
 <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     rel="stylesheet">
@@ -449,7 +449,7 @@ footer {
     <main>
         <div class="container">
             <div class="sidebar">
-        <h3>업무문서함</h3>
+        <h3>파일관리함</h3>
         
         <div class="sidebar-section">
             <div class="sidebar-section-title">개인 파일함</div>
@@ -468,7 +468,7 @@ footer {
             </ul>
         </div>
         <div class="sidebar-section">
-            <div class="sidebar-section-title">공유 파일함</div>
+            <div class="sidebar-section-title">공유받은 파일함</div>
             <ul class="sidebar-list">
                 <li>
                     <a href="/file/share" class="sidebar-link">파일 목록</a>
